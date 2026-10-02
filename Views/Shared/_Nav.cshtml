@@ -1,0 +1,11 @@
+﻿@{ 
+    string show = TempData.ContainsKey("show") ? TempData["show"].ToString() : string.Empty;
+}
+<nav id="MainNav" data-show="@show">   
+    <ul>
+        @*<li id="UserDetails" class="nav-link position1" data-url="@Url.Action("UserDetails", "Sidebar")"><span class="menu-icon profile"></span></li>*@
+        <li id="SetLocalisation" class="nav-link position1" data-url="@Url.Action("SetLocalisation", "Sidebar")"><span class="menu-icon globe"></span></li>
+        <li id="SiteSearch" class="nav-link position2" data-url="@Url.Action("SiteSearch", "Sidebar")"><span class="menu-icon search"></span></li>
+        <li id="SideMenu" class="nav-link position3" data-url="@Url.Action("SideMenu", "Sidebar", new { id = "" } )"><span class="menu-icon menu"></span></li>
+    </ul>   
+</nav>

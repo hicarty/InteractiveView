@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "User Guide";
+}
+
+@await Html.PartialAsync("_PageContent")
+
+@*Babylon's Render Canvas*@
+
+<div class="render-canvas">
+    <div class="render-canvas-loading">
+        <div class="render-canvas-loading-spinner"></div>
+    </div>
+    <canvas id="RenderCanvas" touch-action="none"></canvas> @*touch-action="none" for best results from PEP*@
+</div>
+
+@section scripts{
+
+}

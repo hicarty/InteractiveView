@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Cluster</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    </environment>
+
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+    <link href="~/fonts/bff-nsfw/bff-nsfw-marshall.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/cluster.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.css" />
+
+</head>
+<body>
+
+    @await Html.PartialAsync("_Nav")
+
+    <a id="ClusterLogo" href="/">Cluster</a>
+
+    <div class="menu-background"></div>
+
+    <div class="body-content">
+        @RenderBody()
+        <footer>
+            @await Html.PartialAsync("_Footer")
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>@*Required by Babylon engine to work with touch input on mobile devices*@
+
+        <script src="~/js/babylonjs/babylon.js"></script>
+        @*<script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>*@
+        <script src="~/js/babylonjs/babylonjs.loaders.js"></script>
+        @*<script src="https://preview.babylonjs.com/gui/babylon.gui.js"></script>*@
+        <script src="~/js/babylonjs/babylon.gui.js"></script>
+
+        <script src="~/js/transpose/camera.js"></script>
+        <script src="~/js/transpose/product.js"></script>
+
+        <script src="~/js/site.js" asp-append-version="false"></script>
+        <script src="~/js/data/parts.json"></script>
+        <script src="~/js/LoadProduct.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+
+        <script src="https://code.jquery.com/pep/0.4.3/pep.min.js"></script>@*Required by Babylon engine to work with touch input on mobile devices*@
+
+        <script src="~/js/babylonjs/babylon.js"></script>
+        @*<script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>*@
+        <script src="~/js/babylonjs/babylonjs.loaders.min.js"></script>
+        @*<script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>*@
+        <script src="~/js/babylonjs/babylon.gui.min.js"></script>
+
+        <script src="~/js/transpose/camera.js"></script>
+        <script src="~/js/transpose/product.js"></script>
+
+        <script src="~/js/data/parts.json"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/LoadProduct.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

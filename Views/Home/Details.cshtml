@@ -1,0 +1,22 @@
+﻿@model IEnumerable<InteractiveDomain.InteractiveElement>
+@{
+    ViewData["Title"] = "Details";
+}
+@foreach (var amp in Model)
+{
+<h4>@amp.MeshName</h4>
+<p>
+    -
+    @amp.Description
+</p>
+    <hr />
+}
+
+
+<div>
+    @ViewBag.Message
+</div>
+
+@section scripts{
+
+}

@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>b065b19d-f942-4ead-9b7b-ef0e608aea48</UserSecretsId>
+    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="web.config" />
+    <Content Remove="wwwroot\js\data\parts.json" />
+    <Content Remove="Models\Index.cshtml" />
+    <Content Remove="wwwroot\js\data\Interactive Elements.tsv" />
+    <Content Remove="wwwroot\js\data\Element Descriptions.tsv" />
+    <Content Remove="wwwroot\js\data\Untitled-1.sql" />
+    <Content Remove="wwwroot\js\data\sqltest.sql" />
+    <Content Remove="wwwroot\js\data\Interactive Amplifiers.tsv" />
+    <Content Remove="Views\Amplifier.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="web.config">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Dockerfile" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\fonts\bff-nsfw\bff-nsfw.svg" />
+    <None Include="wwwroot\fonts\bff-nsfw\bff-nsfw.woff2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.3"><PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
+<Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
+</PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="Microsoft.NETCore.App" Version="2.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\InteractiveUserGController.cs" />
+    <Compile Remove="Controllers\HomeController %28copy%29.cs" />
+    <Compile Remove="Controllers\IntereactiveViewController.cs" />
+    <Compile Remove="Models\Index.cshtml.cs" />
+    <Compile Remove="Models\InteractiveAmplifierModel.cs" />
+    <Compile Remove="InteractiveObjects.cs" />
+    <Compile Remove="Controllers\AmplifiersController.cs" />
+    <Compile Remove="Controllers\AmplifiersController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InteractiveDomai\InteractiveDomain.csproj" />
+    <ProjectReference Include="..\InteractiveData\InteractiveData.csproj" />
+  </ItemGroup>
+</Project>

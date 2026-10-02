@@ -1,0 +1,30 @@
+﻿{
+    "interactiveElements"[
+        {
+            "name": "equalisation_treble",
+            "title": "Equalisation Treble",
+            "description": "Lorem ipsum esum..."
+
+        },
+        {
+            "name": "equalisation_middle",
+            "description": "Lorem ipsum esum..."
+
+        },
+        {
+            "name": "switch_output",
+            "description": "Lorem ipsum esum..."
+
+        },
+        {
+            "name": "switch_power",
+            "description": "Lorem ipsum esum..."
+
+        },
+        {
+            "name": "classic_gain",
+            "description": "Lorem ipsum esum..."
+
+        }
+    ]
+}

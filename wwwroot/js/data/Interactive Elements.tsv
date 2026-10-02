@@ -1,0 +1,27 @@
+﻿Interactive Elements	Type	Name	Position	Model
+front_panel_input	Socket	Front Panel Input	front_panel	DSL
+classic_gain	Control	Classic Gain	front_panel	DSL
+classic_gain_volume	Control	Classic Gain Volume	front_panel	DSL
+channel_select	Control	Channel Select	front_panel	DSL
+ultra_gain	Control	Ultra Gain	front_panel	DSL
+ultra_gain_volume	Control	Ultra Gain Volume	front_panel	DSL
+tone_shift	Control	Tone Shift	front_panel	DSL
+equalisation_treble	Control	Treble	front_panel	DSL
+equalisation_middle	Control	Mid	front_panel	DSL
+equalisation_bass	Control	Bass	front_panel	DSL
+equalisation_presence	Control	Presence	front_panel	DSL
+equalisation_resonance	Control	Resonance	front_panel	DSL
+equalisation_reverb	Control	Reverb	front_panel	DSL
+stb			front_panel	DSL
+switch_output	Socket	Switch	front_panel	DSL
+switch_power	Switch	Power	front_panel	DSL
+power_socket	Socket		back_panel	DSL
+fx_loop_return	Socket	FX	back_panel	DSL
+fx_loop_send	Socket		back_panel	DSL
+fs	Socket		back_panel	DSL
+line_mp3_in	Socket		back_panel	DSL
+emulated_out	Socket		back_panel	DSL
+loudspeakers_1x8_a	Speaker	Loudspeaker	back_panel	DSL
+loudspeakers_1x8b	Speaker	Loudspeaker	back_panel	DSL
+loudspeakers_1x16	Speaker	Loudspeaker	back_panel	DSL
+cable	Cable	Cable	back_panel	DSL

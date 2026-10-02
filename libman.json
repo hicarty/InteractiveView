@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "babylonjs@3.3.0",
+      "destination": "wwwroot/js/babylonjs/"
+    },
+    {
+      "library": "font-awesome@4.7.0",
+      "destination": "wwwroot/lib/fontawesome/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@4.1.3",
+      "destination": "wwwroot/lib/bootstrap/"
+    }
+  ]
+}
