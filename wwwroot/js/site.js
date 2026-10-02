@@ -4,6 +4,11 @@ IntereactiveView.Site = IntereactiveView.Site || {};
 $(function (ns) {
     var canvas = document.getElementById("RenderCanvas");
 
+    // Pages without the product render canvas have no scene to build
+    if (canvas === null) {
+        return;
+    }
+
     // Create Babylon 3D Engine
     var engine = new BABYLON.Engine(canvas, true);
 

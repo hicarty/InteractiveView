@@ -1,18 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "User Guide";
+    ViewData["Title"] = "Green Cube";
 }
 
-@await Html.PartialAsync("_PageContent")
-
-@*Babylon's Render Canvas*@
-
-<div class="render-canvas">
-    <div class="render-canvas-loading">
-        <div class="render-canvas-loading-spinner"></div>
-    </div>
-    <canvas id="RenderCanvas" touch-action="none"></canvas> @*touch-action="none" for best results from PEP*@
+<div class="green-cube-scene">
+    <canvas id="GreenCubeCanvas" touch-action="none"></canvas>
 </div>
 
 @section scripts{
-
+    <script src="~/js/greencube.js" asp-append-version="true"></script>
+    <script>
+        $(function () {
+            IntereactiveView.GreenCube.Setup(document.getElementById("GreenCubeCanvas"));
+        });
+    </script>
 }

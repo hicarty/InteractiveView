@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using InteractiveData;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
 
 namespace IntereactiveView
 {
@@ -26,32 +17,19 @@ namespace IntereactiveView
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            services.AddDbContext<MarshallContext>(ServiceLifetime.Scoped);
+            services.AddControllersWithViews();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // Required for the mapped file extensions to be usable on the web page
-            var provider = new FileExtensionContentTypeProvider();
-            provider.Mappings[".obj"] = "application/wavefront-obj";
-            provider.Mappings[".mtl"] = "application/wavefront-mtl";
-            provider.Mappings[".dds"] = "application/image";
-            provider.Mappings[".babylon"] = "babylon";
-            provider.Mappings[".txt"] = "text/plain";
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -65,20 +43,31 @@ namespace IntereactiveView
             app.UseHttpsRedirection();
             app.UseStaticFiles(new StaticFileOptions
             {
-                FileProvider = new PhysicalFileProvider(
-                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "")),
-                RequestPath = "",
-                ContentTypeProvider = provider
+                ContentTypeProvider = CreateContentTypeProvider()
             });
-
             app.UseCookiePolicy();
 
-            app.UseMvc(routes =>
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private static FileExtensionContentTypeProvider CreateContentTypeProvider()
+        {
+            // Required for the mapped file extensions to be usable on the web page
+            var provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".obj"] = "application/wavefront-obj";
+            provider.Mappings[".mtl"] = "application/wavefront-mtl";
+            provider.Mappings[".dds"] = "application/image";
+            provider.Mappings[".babylon"] = "babylon";
+            provider.Mappings[".txt"] = "text/plain";
+
+            return provider;
         }
     }
 }
