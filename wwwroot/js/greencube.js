@@ -46,7 +46,6 @@ $(function (ns) {
         scene.clearColor = BACKGROUND;
 
         setupCamera();
-        setupLights();
 
         cube = createCube();
         spinCube();
@@ -66,14 +65,6 @@ $(function (ns) {
         camera.detachControl();
     }
 
-    function setupLights() {
-
-        var ambientLight = new BABYLON.HemisphericLight("hemisphericLight", new BABYLON.Vector3(0, 1, 0), scene);
-        ambientLight.intensity = 2.0;
-        ambientLight.diffuse = BABYLON.Color3.White();
-        ambientLight.groundColor = BABYLON.Color3.White();
-    }
-
     function createCube() {
 
         var root = new BABYLON.TransformNode("cube", scene);
@@ -91,6 +82,11 @@ $(function (ns) {
         material.diffuseColor = BABYLON.Color3.FromHexString(face.color);
         material.emissiveColor = BABYLON.Color3.FromHexString(face.color);
         material.specularColor = BABYLON.Color3.Black();
+
+        // The source cube is flat CSS colour per face with no shading, so lighting is
+        // disabled and the face colour is carried by emissive. With lighting enabled the
+        // green and blue channels clip to 1.0 and the faces read as cyan instead.
+        material.disableLighting = true;
         material.alpha = 0.9;
 
         var mesh = BABYLON.MeshBuilder.CreatePlane(face.name, { size: CUBE_SIZE, sideOrientation: BABYLON.Mesh.DOUBLESIDE }, scene);
