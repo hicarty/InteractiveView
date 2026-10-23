@@ -1,0 +1,51 @@
+[
+    {
+        "label": "GUIDE",
+        "name": "Amplifier User Guide",
+        "description": "Explore the amp in 3D and click on any control to find out what it does.",
+        "url": "/Home/Details",
+        "color": "#2ecc71"
+    },
+    {
+        "label": "SHOP",
+        "name": "Shop",
+        "description": "Placeholder - replace with the name, description and address of a real site.",
+        "url": "https://example.com/shop",
+        "color": "#27ae60"
+    },
+    {
+        "label": "BLOG",
+        "name": "Blog",
+        "description": "Placeholder - replace with the name, description and address of a real site.",
+        "url": "https://example.com/blog",
+        "color": "#3de07e"
+    },
+    {
+        "label": "DOCS",
+        "name": "Documentation",
+        "description": "Placeholder - replace with the name, description and address of a real site.",
+        "url": "https://example.com/docs",
+        "color": "#1fad5a"
+    },
+    {
+        "label": "HELP",
+        "name": "Support",
+        "description": "Placeholder - replace with the name, description and address of a real site.",
+        "url": "https://example.com/support",
+        "color": "#4ef094"
+    },
+    {
+        "label": "NEWS",
+        "name": "News",
+        "description": "Placeholder - replace with the name, description and address of a real site.",
+        "url": "https://example.com/news",
+        "color": "#239b55"
+    },
+    {
+        "label": "ABOUT",
+        "name": "About",
+        "description": "Placeholder - replace with the name, description and address of a real site.",
+        "url": "https://example.com/about",
+        "color": "#2ecc71"
+    }
+]

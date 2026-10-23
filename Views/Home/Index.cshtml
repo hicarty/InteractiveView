@@ -1,16 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Green Cube";
+@{
+    ViewData["Title"] = "Sites";
 }
 
-<div class="green-cube-scene">
-    <canvas id="GreenCubeCanvas" touch-action="none"></canvas>
+<div class="site-hex-scene">
+    <canvas id="SiteHexCanvas" touch-action="none"></canvas>
+
+    <div id="SiteHexPanel" class="site-hex-panel" aria-hidden="true" aria-live="polite">
+        <button type="button" class="site-hex-close" aria-label="Close">&times;</button>
+        <h4 class="site-hex-title"></h4>
+        <p class="site-hex-description"></p>
+        <a class="site-hex-visit" href="#">Visit site</a>
+    </div>
+
+    <div class="site-hex-hint">Click a cube to explore &middot; drag to rotate &middot; scroll to zoom</div>
 </div>
 
+<ul id="SiteHexList" class="site-hex-list"></ul>
+
 @section scripts{
-    <script src="~/js/greencube.js" asp-append-version="true"></script>
+    <script src="~/js/sitehex.js" asp-append-version="true"></script>
     <script>
         $(function () {
-            IntereactiveView.GreenCube.Setup(document.getElementById("GreenCubeCanvas"));
+            IntereactiveView.SiteHex.Setup(
+                document.getElementById("SiteHexCanvas"),
+                document.getElementById("SiteHexPanel"),
+                document.getElementById("SiteHexList"),
+                "@Url.Content("~/js/data/sites.json")");
         });
     </script>
 }

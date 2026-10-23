@@ -448,3 +448,123 @@ input[type=file].hidden-file {
     display: block;
     touch-action: none;
 }
+
+.site-hex-scene {
+    position: relative;
+    height: 75vh;
+    min-height: 420px;
+    margin-top: 80px;
+    background-color: #1a1a2e;
+    overflow: hidden;
+}
+
+.site-hex-scene canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    touch-action: none;
+}
+
+.site-hex-panel {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 320px;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    color: #fff;
+    background-color: rgba(26, 26, 46, .92);
+    border-left: 4px solid #2ecc71;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+    .site-hex-panel.is-open {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
+
+    .site-hex-panel .site-hex-title {
+        padding-right: 1.5rem;
+    }
+
+    .site-hex-panel .site-hex-description {
+        font-size: 1rem;
+        color: #d0d0dc;
+    }
+
+    .site-hex-panel .site-hex-close {
+        position: absolute;
+        top: .5rem;
+        right: .75rem;
+        border: 0;
+        background: none;
+        color: #fff;
+        font-size: 1.5rem;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .site-hex-panel a.site-hex-visit {
+        display: inline-block;
+        padding: .3rem 1rem;
+        color: #1a1a2e;
+        background-color: #2ecc71;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+        .site-hex-panel a.site-hex-visit:hover {
+            color: #1a1a2e;
+            background-color: #4ef094;
+            text-decoration: none;
+        }
+
+.site-hex-hint {
+    position: absolute;
+    left: 24px;
+    bottom: 16px;
+    font-size: .85rem;
+    color: rgba(255, 255, 255, .6);
+    pointer-events: none;
+}
+
+.site-hex-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0 16px;
+    margin: 1.5rem 0;
+    list-style: none;
+}
+
+    .site-hex-list li {
+        margin: 0 .75rem .5rem;
+    }
+
+    .site-hex-list a {
+        color: #000;
+    }
+
+        .site-hex-list a:hover, .site-hex-list a:focus {
+            color: #27ae60;
+        }
+
+@media(max-width: 600px) {
+    .site-hex-panel {
+        top: auto;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        width: auto;
+    }
+
+    .site-hex-hint {
+        left: 16px;
+        top: 16px;
+        bottom: auto;
+    }
+}
